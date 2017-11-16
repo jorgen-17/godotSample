@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://textItUpBitches.gd" type="Script" id=1]
+[ext_resource path="res://textures/heart1.tex" type="Texture" id=2]
+[ext_resource path="res://textures/heart2.tex" type="Texture" id=3]
+[ext_resource path="res://textures/heart3.tex" type="Texture" id=4]
+[ext_resource path="res://textures/heart4.tex" type="Texture" id=5]
+[ext_resource path="res://textures/heart5.tex" type="Texture" id=6]
+[ext_resource path="res://textures/heart6.tex" type="Texture" id=7]
+[ext_resource path="res://textures/heart7.tex" type="Texture" id=8]
+[ext_resource path="res://textures/heart8.tex" type="Texture" id=9]
+[ext_resource path="res://heartItUpBitches.gd" type="Script" id=10]
+[ext_resource path="res://textures/kiss.tex" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "moveInHeartShape"
+length = 2.5
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("kissSprite:flip_h")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, false, true, false ]
+}
+
+[node name="Node2D" type="Node2D"]
+
+transform/pos = Vector2( -417.855, 323.995 )
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 845.0
+margin/top = -89.0
+margin/right = 946.0
+margin/bottom = -75.0
+text = "what up bitches"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 902.0
+margin/top = -44.0
+margin/right = 962.0
+margin/bottom = -4.0
+bbcode/enabled = true
+bbcode/bbcode = "youre sucha cutie wow"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="heart1" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 1064.95, -31.6349 )
+frames = SubResource( 1 )
+animation = "default"
+script/script = ExtResource( 10 )
+
+[node name="heart2" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 781.973, -27.6699 )
+frames = SubResource( 1 )
+animation = "default"
+script/script = ExtResource( 10 )
+
+[node name="kissSprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 930.117, 235.447 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/moveInHeartShape = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "moveInHeartShape"
+
+
