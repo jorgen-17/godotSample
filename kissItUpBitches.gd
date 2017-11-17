@@ -4,10 +4,12 @@ export var startingAnimFrame = 0
 
 onready var sprite = get_child(0)
 onready var tween = get_child(1)
+onready var initialPos = sprite.get_pos()
 
-var currentFrame = startingAnimFrame
+var currentFrame
 
-var step = 100
+const step = 100
+const timeBetweenSteps = 0.50
 
 var positionOffsets = [
 	Vector2(-step, -step),
@@ -23,13 +25,19 @@ var positionOffsets = [
 ]
 
 func _ready():
-	pass
-
-func _flip_and_move():
-	sprite.set_flip_h(!sprite.is_flipped_h())
-	sprite.set_pos(sprite.get_pos() + positionOffsets[currentFrame])
+	currentFrame = startingAnimFrame
+	set_process(true);
 	
-	if (currentFrame < (positionOffsets.size() - 1)):
-		currentFrame = currentFrame + 1
-	else:
-		currentFrame = 0
+func _process(delta):
+	if (tween.get_runtime() <= 0):
+		var currentPos = sprite.get_pos()
+		var finalPos = currentPos + positionOffsets[currentFrame];
+		tween.interpolate_property(sprite, "transform/pos", currentPos, finalPos, timeBetweenSteps, Tween.TRANS_LINEAR, Tween.TRANS_LINEAR)
+		tween.start()
+	
+		sprite.set_flip_h(!sprite.is_flipped_h())
+	
+		if (currentFrame < (positionOffsets.size() - 1)):
+			currentFrame = currentFrame + 1
+		else:
+			currentFrame = 0

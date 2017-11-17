@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=14 format=1]
 
 [ext_resource path="res://textItUpBitches.gd" type="Script" id=1]
 [ext_resource path="res://textures/heart1.tex" type="Texture" id=2]
@@ -21,55 +21,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="Animation" id=2]
-
-resource/name = "moveInHeartShape"
-length = 2.5
-loop = true
-step = 0.25
-tracks/0/type = "method"
-tracks/0/path = NodePath("kiss")
-tracks/0/interp = 1
-tracks/0/imported = false
-tracks/0/keys = {
-"times": FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5 ),
-"transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-}, {
-"args": [  ],
-"method": "_flip_and_move"
-} ]
-}
 
 [node name="Node2D" type="Node2D"]
 
@@ -120,30 +71,202 @@ frames = SubResource( 1 )
 animation = "default"
 script/script = ExtResource( 10 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="kisses" type="Node" parent="."]
 
-playback/process_mode = 1
-playback/default_blend_time = 0.0
-root/root = NodePath("..")
-anims/moveInHeartShape = SubResource( 2 )
-playback/active = true
-playback/speed = 1.0
-blend_times = [  ]
-autoplay = "moveInHeartShape"
+[node name="kiss" type="Node" parent="kisses"]
 
-[node name="kiss" type="Node" parent="."]
-
+editor/display_folded = true
 script/script = ExtResource( 11 )
 startingAnimFrame = 0
 
-[node name="Sprite" type="Sprite" parent="kiss"]
+[node name="Sprite" type="Sprite" parent="kisses/kiss"]
 
-transform/pos = Vector2( 512.262, 559.442 )
+transform/pos = Vector2( 510, 560 )
 transform/scale = Vector2( 0.05, 0.061782 )
 texture = ExtResource( 12 )
 flip_h = true
 
-[node name="Tween" type="Tween" parent="kiss"]
+[node name="Tween" type="Tween" parent="kisses/kiss"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss1" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 1
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss1"]
+
+transform/pos = Vector2( 410, 460 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss1"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss2" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 2
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss2"]
+
+transform/pos = Vector2( 310, 360 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss2"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss3" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 3
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss3"]
+
+transform/pos = Vector2( 310, 260 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss3"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss4" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 4
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss4"]
+
+transform/pos = Vector2( 410, 160 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss4"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss5" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 5
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss5"]
+
+transform/pos = Vector2( 510, 210 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss5"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss6" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 6
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss6"]
+
+transform/pos = Vector2( 610, 160 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss6"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss7" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 7
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss7"]
+
+transform/pos = Vector2( 710, 260 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss7"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss8" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 8
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss8"]
+
+transform/pos = Vector2( 710, 360 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss8"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="kiss9" type="Node" parent="kisses"]
+
+editor/display_folded = true
+script/script = ExtResource( 11 )
+startingAnimFrame = 9
+
+[node name="Sprite" type="Sprite" parent="kisses/kiss9"]
+
+transform/pos = Vector2( 610, 460 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kisses/kiss9"]
 
 playback/process_mode = 1
 playback/active = false
