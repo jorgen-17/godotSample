@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=15 format=1]
 
 [ext_resource path="res://textItUpBitches.gd" type="Script" id=1]
 [ext_resource path="res://textures/heart1.tex" type="Texture" id=2]
@@ -10,7 +10,8 @@
 [ext_resource path="res://textures/heart7.tex" type="Texture" id=8]
 [ext_resource path="res://textures/heart8.tex" type="Texture" id=9]
 [ext_resource path="res://heartItUpBitches.gd" type="Script" id=10]
-[ext_resource path="res://textures/kiss.tex" type="Texture" id=11]
+[ext_resource path="res://kissItUpBitches.gd" type="Script" id=11]
+[ext_resource path="res://textures/kiss.tex" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -27,15 +28,47 @@ resource/name = "moveInHeartShape"
 length = 2.5
 loop = true
 step = 0.25
-tracks/0/type = "value"
-tracks/0/path = NodePath("kissSprite:flip_h")
+tracks/0/type = "method"
+tracks/0/path = NodePath("kiss")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
 "times": FloatArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.25, 2.5 ),
 "transitions": FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false, true, false, true, false, true, false, true, false ]
+"values": [ {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+}, {
+"args": [  ],
+"method": "_flip_and_move"
+} ]
 }
 
 [node name="Node2D" type="Node2D"]
@@ -87,12 +120,6 @@ frames = SubResource( 1 )
 animation = "default"
 script/script = ExtResource( 10 )
 
-[node name="kissSprite" type="Sprite" parent="."]
-
-transform/pos = Vector2( 930.117, 235.447 )
-transform/scale = Vector2( 0.05, 0.061782 )
-texture = ExtResource( 11 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 playback/process_mode = 1
@@ -103,5 +130,24 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "moveInHeartShape"
+
+[node name="kiss" type="Node" parent="."]
+
+script/script = ExtResource( 11 )
+startingAnimFrame = 0
+
+[node name="Sprite" type="Sprite" parent="kiss"]
+
+transform/pos = Vector2( 512.262, 559.442 )
+transform/scale = Vector2( 0.05, 0.061782 )
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="Tween" type="Tween" parent="kiss"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 
